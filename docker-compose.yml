@@ -1,0 +1,18 @@
+name: "t3-chat-build"
+
+services:
+  db:
+    image: postgres:latest
+    container_name: t3-chat-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: t3chatdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
